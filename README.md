@@ -1,6 +1,6 @@
 # Forti-Stuff
 
-> FortiScripts to make your FortiLife easier
+> FortiScripts to make my FortiLife easier (sometimes)
 
 ## The Premise
 I've been spending more time in the FortiGate CLI during deployments and migrations, and have been creating scripts to help with this process.
