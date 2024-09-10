@@ -1,0 +1,608 @@
+edit "EXT-Etrition_Harris"
+set subnet 209.166.173.136/255.255.255.255
+next
+
+edit "Ext-Extreme DNS1"
+set subnet 208.67.220.220/255.255.255.255
+next
+
+edit "Ext-Extreme DNS2"
+set subnet 208.67.220.222/255.255.255.255
+next
+
+edit "EXT-Finalsite-LDAP01"
+set subnet 34.73.130.72/255.255.255.248
+next
+
+edit "EXT-Finalsite-LDAP02"
+set subnet 34.75.25.79/255.255.255.255
+next
+
+edit "EXT-Finalsite-LDAP03"
+set subnet 34.75.80.239/255.255.255.255
+next
+
+edit "EXT-Finalsite-LDAP04"
+set subnet 34.73.80.239/255.255.255.255
+next
+
+edit "EXT-Follett1"
+set subnet 12.171.92.2/255.255.255.255
+next
+
+edit "EXT-Follett2"
+set subnet 12.171.92.233/255.255.255.255
+next
+
+edit "EXT-ftp.ctb.com"
+set subnet 204.8.133.195/255.255.255.255
+next
+
+edit "EXT-ftp.esetusa.com"
+set subnet 64.87.18.3/255.255.255.255
+next
+
+edit "EXT-GHangout1"
+set subnet 173.194.199.127/255.255.255.255
+next
+
+edit "EXT-GHangout2"
+set subnet 64.233.169.127/255.255.255.255
+next
+
+edit "EXT-GHangout3"
+set subnet 74.125.250.0 - 74.125.250.255
+next
+
+edit "Ext-K95BrdCst"
+set subnet 172.217.12.36/255.255.255.255
+next
+
+edit "EXT-K95_Broadcast"
+set subnet 24.249.72.194/255.255.255.255
+next
+
+edit "EXT-KOTV_Brdcst_1"
+set subnet 184.172.123.52/255.255.255.255
+next
+
+edit "EXT-KOTV_Brdcst_2"
+set subnet 208.43.70.18/255.255.255.255
+next
+
+edit "EXT-Languageline_Servers_1"
+set subnet 208.94.16.21 - 208.94.16.210
+next
+
+edit "EXT-Languageline_Servers_2"
+set subnet 208.95.32.21 - 208.95.32.210
+next
+
+edit "EXT-Matlock-Monitoring-Ctr1"
+set subnet 199.48.63.121/255.255.255.255
+next
+
+edit "EXT-Matlock-Monitoring-Ctr2"
+set subnet 199.233.144.121/255.255.255.255
+next
+
+edit "EXT-MSTEAMS_1"
+set subnet 52.114.161.1/24
+next
+
+edit "EXT-MSTEAMS_2"
+set subnet 52.114.132.1/24
+next
+
+edit "EXT-MSTEAMS_3"
+set subnet 52.115.221.1/24
+next
+
+edit "EXT-MSTEAMS_4"
+set subnet 52.115.153.1/24
+next
+
+edit "EXT-MSTEAMS_5"
+set subnet 52.115.219.1/24
+next
+
+edit "EXT-Ok.gov"
+set subnet 204.87.106.2/255.255.255.255
+next
+
+edit "EXT-OneNet_DNS_1"
+set subnet 164.58.200.200/255.255.255.255
+next
+
+edit "EXT-OneNet_DNS_2"
+set subnet 156.110.200.200/255.255.255.255
+next
+
+edit "EXT-Owasso_PD"
+set subnet 98.175.228.131/255.255.255.255
+next
+
+edit "EXT-SAM Info FTP"
+set subnet Imports.education.scholastic.com
+next
+
+edit "EXT-SchoolSafe FTP"
+set subnet 66.85.133.144/255.255.255.255
+next
+
+edit "EXT-SEAS_CDN"
+set subnet 208.117.12.0/255.255.255.192
+next
+
+edit "EXT-SEAS_Web"
+set subnet 72.3.239.2 - 72.3.239.32
+next
+
+edit "EXT-SherpaDsk-LDAP01"
+set subnet 40.71.11.153/255.255.255.255
+next
+
+edit "EXT-SherpaDsk-LDAP02"
+set subnet 40.88.238.117/255.255.255.255
+next
+
+edit "EXT-SherpaDsk-LDAP03"
+set subnet 40.88.134.89/255.255.255.255
+next
+
+edit "EXT-SherpaDsk-LDAP04"
+set subnet 20.75.170.1 - 20.75.171.255
+next
+
+edit "EXT-SherpaDsk-LDAP06"
+set subnet 52.188.151.1/24
+next
+
+edit "EXT-SherpaDsk-LDAP07"
+set subnet 52.188.144.1/24
+next
+
+edit "EXT-SherpaDsk-Replication"
+set subnet 40.77.18.92/255.255.255.255
+next
+
+edit "EXT-SherpaDsk-Setup-Stage"
+set subnet 168.62.50.31/255.255.255.255
+next
+
+edit "EXT-SherpaDsk-Setup1"
+set subnet 168.62.50.162/255.255.255.255
+next
+
+edit "EXT-SherpaDsk-Wildcard"
+set subnet 168.62.48.1 - 168.62.48.255
+next
+
+edit "EXT-Sodexho"
+set subnet 65.211.62.75/255.255.255.255
+next
+
+edit "EXT-Spam_Source"
+set subnet 198.105.97.24/255.255.255.255
+next
+
+edit "EXT-Study_Island_Servers_3"
+set subnet 207.210.221.128 - 207.210.221.191
+next
+
+edit "EXT-Study_Island_Server_1"
+set subnet 72.249.13.0 - 72.249.13.63
+next
+
+edit "EXT-Study_Island_Server_2"
+set subnet 207.210.237.64 - 207.210.237.127
+next
+
+edit "EXT-Study_Island_Server_4"
+set subnet 107.21.104.61/255.255.255.255
+next
+
+edit "EXT-Teramark_Offsite_Backup"
+set subnet 199.107.65.95/255.255.255.255
+next
+
+edit "EXT-Terramark_Offsite_Backup_2"
+set subnet 67.208.213.0/255.255.255.128
+next
+
+edit "EXT-USI"
+set subnet 66.210.188.32/255.255.255.224
+next
+
+edit "EXT-USI-Networks"
+set subnet 24.248.244.32/255.255.255.224
+next
+
+edit "EXT-Wycom"
+set subnet 206.212.236.45/255.255.255.255
+next
+
+edit "Google Auth Issue"
+set subnet 216.58.192.0 - 216.58.195.255
+next
+
+edit "Google Auth Issue 2"
+set subnet 172.217.0.0/16
+next
+
+edit "Google DNS"
+set subnet 8.8.8.8/255.255.255.255
+next
+
+edit "Google DNS 2"
+set subnet 4.4.4.4/255.255.255.255
+next
+
+edit "host-64.207.252.239"
+set subnet 64.207.252.239/255.255.255.255
+next
+
+edit "host-64.207.252.240"
+set subnet 64.207.252.240/255.255.255.255
+next
+
+edit "host-64.207.252.241"
+set subnet 64.207.252.241/255.255.255.255
+next
+
+edit "host-64.207.252.242"
+set subnet 64.207.252.242/255.255.255.255
+next
+
+edit "host-64.207.252.243"
+set subnet 64.207.252.243/255.255.255.255
+next
+
+edit "host-64.207.252.244"
+set subnet 64.207.252.244/255.255.255.255
+next
+
+edit "host-64.207.252.245"
+set subnet 64.207.252.245/255.255.255.255
+next
+
+edit "host-64.207.252.246"
+set subnet 64.207.252.246/255.255.255.255
+next
+
+edit "host-64.207.252.247"
+set subnet 64.207.252.247/255.255.255.255
+next
+
+edit "host-64.207.252.248"
+set subnet 64.207.252.248/255.255.255.255
+next
+
+edit "host-64.207.252.249"
+set subnet 64.207.252.249/255.255.255.255
+next
+
+edit "host-64.207.252.250"
+set subnet 64.207.252.250/255.255.255.255
+next
+
+edit "host-64.207.252.251"
+set subnet 64.207.252.251/255.255.255.255
+next
+
+edit "host-64.207.252.252"
+set subnet 64.207.252.252/255.255.255.255
+next
+
+edit "HS-NAT-64.207.252.253"
+set subnet 64.207.252.253/255.255.255.255
+next
+
+edit "INT-CCOSA Phones_1"
+set subnet 10.8.11.6/255.255.255.255
+next
+
+edit "IT - D Gibbs"
+set subnet 10.13.20.56/255.255.255.255
+next
+
+edit "IT - D Hester"
+set subnet 10.13.20.150/255.255.255.255
+next
+
+edit "IT - D. Gibbs"
+set subnet IT-DG.owasso.k12.ok.us
+next
+
+edit "IT - D. Hester"
+set subnet IT-DP-DH.owasso.k12.ok.us
+next
+
+edit "IT - Director"
+set subnet 10.13.20.57/255.255.255.255
+next
+
+edit "IT - Director Laptop"
+set subnet Thornton-laptop.owasso.k12.ok.us
+next
+
+edit "IT - Director PC"
+set subnet Thorntonpc.owasso.k12.ok.us
+next
+
+edit "IT - Helpdesk"
+set subnet 10.13.20.90/255.255.255.255
+next
+
+edit "IT - Helpdesk PC"
+set subnet IT-DP-RKING.owasso.k12.ok.us
+next
+
+edit "IT - IT MacBook"
+set subnet 10.13.31.10/255.255.255.255
+next
+
+edit "IT - J. Thompson"
+set subnet 10.13.20.100/255.255.255.255
+next
+
+edit "IT - J. Thompson Laptop"
+set subnet IT-LP-5150.owasso.k12.ok.us
+next
+
+edit "IT - NetAdmin"
+set subnet 10.13.20.8/255.255.255.255
+next
+
+edit "IT - NetAdmin Laptop"
+set subnet IT-LP-CASADYD.owasso.k12.ok.us
+next
+
+edit "IT - NetAdmin PC"
+set subnet IT-DT-CASADY.owasso.k12.ok.us
+next
+
+edit "IT - S Parker 1"
+set subnet 10.13.20.139/255.255.255.255
+next
+
+edit "IT - S Parker 2"
+set subnet 10.13.20.143/255.255.255.255
+next
+
+edit "KOKC Tieline"
+set subnet 10.11.20.193/255.255.255.255
+next
+
+edit "LAN-115_Network"
+set subnet 192.168.115.0/255.255.255.0
+next
+
+edit "LAN-7GC-SPED-ESPORTS-Wireless"
+set subnet 10.107.111.240 - 10.107.111.242
+next
+
+edit "LAN-7th Trane Controller"
+set subnet 10.7.7.75/255.255.255.255
+next
+
+edit "LAN-AH-MGMT-6TH"
+set subnet 10.106.248.0/255.255.254.0
+next
+
+edit "LAN-AH-MGMT-7TH"
+set subnet 10.107.248.0/255.255.254.0
+next
+
+edit "LAN-AH-MGMT-8TH"
+set subnet 10.108.248.0/255.255.254.0
+next
+
+edit "LAN-AH-MGMT-ATR"
+set subnet 10.121.248.0/255.255.254.0
+next
+
+edit "LAN-AH-MGMT-BLY"
+set subnet 10.122.248.0/255.255.254.0
+next
+
+edit "LAN-AH-MGMT-BRN"
+set subnet 10.123.248.0/255.255.254.0
+next
+
+edit "LAN-AH-MGMT-HDS"
+set subnet 10.124.248.0/255.255.254.0
+next
+
+edit "LAN-AH-MGMT-HS"
+set subnet 10.111.248.0/255.255.254.0
+next
+
+edit "LAN-AH-MGMT-MH"
+set subnet 10.109.248.0/255.255.254.0
+next
+
+edit "LAN-AH-MGMT-MLL"
+set subnet 10.125.248.0/255.255.254.0
+next
+
+edit "LAN-AH-MGMT-MRW"
+set subnet 10.129.248.0/255.255.254.0
+next
+
+edit "LAN-AH-MGMT-NEE"
+set subnet 10.126.248.0/255.255.254.0
+next
+
+edit "LAN-AH-MGMT-RAM"
+set subnet 10.113.248.0/255.255.254.0
+next
+
+edit "LAN-AH-MGMT-SMT"
+set subnet 10.127.248.0/255.255.254.0
+next
+
+edit "LAN-AH-MGMT-STC"
+set subnet 10.128.248.0/255.255.254.0
+next
+
+edit "LAN-e2020_Server"
+set subnet 192.168.115.25/255.255.255.255
+next
+
+edit "LAN-ePortal_Internal"
+set subnet 192.168.6.205/255.255.255.255
+next
+
+edit "LAN-Exmail"
+set subnet 192.168.115.210/255.255.255.255
+next
+
+edit "LAN-Filewave"
+set subnet 192.168.115.170/255.255.255.255
+next
+
+edit "LAN-Honeywell-Firewall"
+set subnet 192.168.200.225/255.255.255.255
+next
+
+edit "LAN-K95_Broadcast"
+set subnet 10.11.45.162/255.255.255.255
+next
+
+edit "LAN-LGHTSPD"
+set subnet 192.168.200.245/255.255.255.255
+next
+
+edit "LAN-Lightspeed_SS_DNS"
+set subnet 10.100.100.50 - 10.100.100.55
+next
+
+edit "LAN-LoadBalancer"
+set subnet 192.168.115.85/255.255.255.255
+next
+
+edit "LAN-LTN Ball Game Streaming device"
+set subnet 10.11.20.173/255.255.255.255
+next
+
+edit "LAN-LTN Ball Game Streaming device 2"
+set subnet 10.11.20.177/255.255.255.255
+next
+
+edit "LAN-MID-AeroHive-AP"
+set subnet 10.109.0.0/255.255.255.0
+next
+
+edit "LAN-MID-AH-WIRELESS"
+set subnet 10.109.16.0/255.255.240.0
+next
+
+edit "LAN-MID-ESPORTS"
+set subnet 10.109.252.0/255.255.255.0
+next
+
+edit "LAN-Mid_Wired_Network"
+set subnet 10.9.0.0/255.255.0.0
+next
+
+edit "LAN-MRW_Trane_Cntrlr"
+set subnet 10.129.254.56/255.255.255.255
+next
+
+edit "LAN-NEEVIDEO"
+set subnet 10.26.1.5/255.255.255.255
+next
+
+edit "LAN-NtwkAdminPC"
+set subnet 10.13.20.8/255.255.255.255
+next
+
+edit "LAN-OHS-217-FLIGHT1"
+set subnet OHS-217-FLIGHT1.owasso.k12.ok.us
+next
+
+edit "LAN-OHS-217-FLIGHT2"
+set subnet OHS-217-FLIGHT2.owasso.k12.ok.us
+next
+
+edit "LAN-OHS-217-FLIGHT3"
+set subnet OHS-217-FLIGHT3.owasso.k12.ok.us
+next
+
+edit "LAN-OHS-217-FLIGHT4"
+set subnet OHS-217-FLIGHT4.owasso.k12.ok.us
+next
+
+edit "LAN-OHS-217-FLIGHT5"
+set subnet OHS-217-FLIGHT5.owasso.k12.ok.us
+next
+
+edit "LAN-OHS-217-FLIGHT6"
+set subnet OHS-217-FLIGHT6.owasso.k12.ok.us
+next
+
+edit "LAN-OHS-217-FLIGHT7"
+set subnet OHS-217-FLIGHT7.owasso.k12.ok.us
+next
+
+edit "LAN-OHS-217-FLIGHT8"
+set subnet OHS-217-FLIGHT8.owasso.k12.ok.us
+next
+
+edit "LAN-OHS-Aerohive-AP"
+set subnet 10.111.0.0/255.255.255.0
+next
+
+edit "LAN-OHS-AH-WIRELESS"
+set subnet 10.111.16.0/255.255.240.0
+next
+
+edit "LAN-OHS-BB_GYM_Marquee"
+set subnet 10.11.44.20 - 10.11.44.24
+next
+
+edit "LAN-OHS-SPED-ESPORTS-Wireless"
+set subnet 10.111.111.240 - 10.111.111.242
+next
+
+edit "LAN-OHS_AH_Wireless"
+set subnet 10.111.0.0/255.255.0.0
+next
+
+edit "LAN-OHS_Facilities_VLAN"
+set subnet 10.111.254.0/255.255.255.0
+next
+
+edit "LAN-Ohs_Wired_Network"
+set subnet 10.11.0.0/255.255.0.0
+next
+
+edit "LAN-OPS-ADCDC01"
+set subnet 10.100.100.9/255.255.255.255
+next
+
+edit "LAN-OPS-ADCDC02"
+set subnet 10.100.100.6/255.255.255.255
+next
+
+edit "LAN-OPS-ADCRODC"
+set subnet 10.100.100.8/255.255.255.255
+next
+
+edit "LAN-OPS-Offsite_Server"
+set subnet 192.168.115.14/255.255.255.255
+next
+
+edit "LAN-OPS_Internal_Network"
+set subnet 10.0.0.0/255.0.0.0
+next
+
+edit "LAN-OPS_Internal_WAN"
+set subnet 192.168.200.0/255.255.255.0
+next
+
+edit "LAN-OSN-NFHS Laptop for BB Streaming"
+set subnet 10.111.98.44/255.255.255.255
+next
+
