@@ -1,0 +1,7 @@
+edit XXX-1
+set subnet 123.456.789/32
+next
+
+edit xxx-2
+set subnet 234.567.890/32
+next
