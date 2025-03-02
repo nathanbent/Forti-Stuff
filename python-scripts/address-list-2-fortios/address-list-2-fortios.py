@@ -4,7 +4,7 @@ def generate_fortigate_addresses(input_file, output_file):
             ip = ip.strip()
             if ip:  # Make sure the line is not empty
                 outfile.write(f"edit XXX-{index}\n")
-                outfile.write(f"set subnet {ip}/32\n")
+                outfile.write(f"set subnet {ip}\n")
                 outfile.write("next\n\n")
 
 if __name__ == "__main__":
