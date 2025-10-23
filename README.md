@@ -11,7 +11,5 @@ These are fairly basic scripts to take a large input set and output them into Fo
 ### Scripts
 - Named lists to FortiOS (`named-list-2-fortios.py`)
 - Bulk lists to be automatically named (`address-list-2-fortios.py`)
-
-More coming soon
-
-!
+- Bulk webfilter URL import named (`webfilter-2-fortios.py`)
+More coming soon!
