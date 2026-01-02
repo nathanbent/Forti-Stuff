@@ -1,0 +1,55 @@
+edit "Central-US-1"
+set type fqdn
+set fqdn app.central.arubanetworks.com
+next
+
+edit "Central-US-2"
+set type fqdn
+set fqdn app-prod2.central.arubanetworks.com
+next
+
+edit "Central-US West"
+set type fqdn
+set fqdn app-uswest4.central.arubanetworks.com
+next
+
+edit "Central-US West 5"
+set type fqdn
+set fqdn app-uswest5.central.arubanetworks.com
+next
+
+edit "Central-US-1"
+set type fqdn
+set fqdn app.central.arubanetworks.com
+next
+
+edit "Central-US-2"
+set type fqdn
+set fqdn app-prod2.central.arubanetworks.com
+next
+
+edit "Central-US West"
+set type fqdn
+set fqdn app-uswest4.central.arubanetworks.com
+next
+
+edit "Central-US West 5"
+set type fqdn
+set fqdn app-uswest5.central.arubanetworks.com
+next
+
+edit "Central-device.arubanetworks.com"
+set type fqdn
+set fqdn device.arubanetworks.com
+next
+
+edit "Central-devices-v2.arubanetworks.com"
+set type fqdn
+set fqdn devices-v2.arubanetworks.com
+next
+
+edit "Central-est.arubanetworks.com"
+set type fqdn
+set fqdn est.arubanetworks.com
+next
+

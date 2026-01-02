@@ -1,8 +1,0 @@
-edit XXX-1
-set subnet 123.456.789/24
-next
-
-edit XXX-2
-set subnet 234.567.890/32
-next
-

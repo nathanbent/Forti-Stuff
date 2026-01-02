@@ -1,0 +1,4 @@
+edit Frontline-IP-1
+set subnet 123.123.123.123/32
+next
+

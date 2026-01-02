@@ -1,0 +1,32 @@
+Central-US-1
+app.central.arubanetworks.com
+
+Central-US-2
+app-prod2.central.arubanetworks.com
+
+Central-US West
+app-uswest4.central.arubanetworks.com
+
+Central-US West 5
+app-uswest5.central.arubanetworks.com
+
+Central-US-1
+app.central.arubanetworks.com
+
+Central-US-2
+app-prod2.central.arubanetworks.com
+
+Central-US West
+app-uswest4.central.arubanetworks.com
+
+Central-US West 5
+app-uswest5.central.arubanetworks.com
+
+Central-device.arubanetworks.com
+device.arubanetworks.com
+
+Central-devices-v2.arubanetworks.com
+devices-v2.arubanetworks.com
+
+Central-est.arubanetworks.com
+est.arubanetworks.com
