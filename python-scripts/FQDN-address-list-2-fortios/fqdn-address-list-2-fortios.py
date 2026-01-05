@@ -3,9 +3,9 @@ def generate_fortigate_addresses(input_file, output_file):
         for index, ip in enumerate(infile, start=1):
             ip = ip.strip()
             if ip:  # Make sure the line is not empty
-                outfile.write(f"edit SchoolBucks-IP-{index}\n")
-#                outfile.write(f"set type fqdn\n")
-                outfile.write(f"set subnet {ip}\n")
+                outfile.write(f"edit SchoolBucks-FQDN-{index}\n")
+                outfile.write(f"set type fqdn\n")
+                outfile.write(f"set fqdn {ip}\n")
                 outfile.write("next\n\n")
 
 if __name__ == "__main__":

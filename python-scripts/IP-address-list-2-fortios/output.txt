@@ -1,4 +1,172 @@
-edit Frontline-IP-1
-set subnet 123.123.123.123/32
+edit SchoolBucks-IP-1
+set subnet 204.74.99.100/32
+next
+
+edit SchoolBucks-IP-2
+set subnet 107.162.184.117/32
+next
+
+edit SchoolBucks-IP-3
+set subnet 107.162.184.118/32
+next
+
+edit SchoolBucks-IP-4
+set subnet 152.195.19.97/32
+next
+
+edit SchoolBucks-IP-5
+set subnet 34.120.152.203/32
+next
+
+edit SchoolBucks-IP-6
+set subnet 142.251.40.115/32
+next
+
+edit SchoolBucks-IP-7
+set subnet 104.18.86.42/32
+next
+
+edit SchoolBucks-IP-8
+set subnet 142.251.40.234/32
+next
+
+edit SchoolBucks-IP-9
+set subnet 142.251.40.99/32
+next
+
+edit SchoolBucks-IP-10
+set subnet 142.250.65.227/32
+next
+
+edit SchoolBucks-IP-11
+set subnet 142.251.32.104/32
+next
+
+edit SchoolBucks-IP-12
+set subnet 104.16.117.116/32
+next
+
+edit SchoolBucks-IP-13
+set subnet 104.16.117.116/32
+next
+
+edit SchoolBucks-IP-14
+set subnet 104.16.117.116/32
+next
+
+edit SchoolBucks-IP-15
+set subnet 104.18.24.189/32
+next
+
+edit SchoolBucks-IP-16
+set subnet 104.17.37.207/32
+next
+
+edit SchoolBucks-IP-17
+set subnet 34.120.152.203/32
+next
+
+edit SchoolBucks-IP-18
+set subnet 13.109.191.233/32
+next
+
+edit SchoolBucks-IP-19
+set subnet 13.113.196.52/32
+next
+
+edit SchoolBucks-IP-20
+set subnet 107.162.184.119/32
+next
+
+edit SchoolBucks-IP-21
+set subnet 204.74.99.100/32
+next
+
+edit SchoolBucks-IP-22
+set subnet 35.211.222.132/32
+next
+
+edit SchoolBucks-IP-23
+set subnet 35.211.77.168/32
+next
+
+edit SchoolBucks-IP-24
+set subnet 152.195.19.97/32
+next
+
+edit SchoolBucks-IP-25
+set subnet 34.120.152.203/32
+next
+
+edit SchoolBucks-IP-26
+set subnet 142.251.40.147/32
+next
+
+edit SchoolBucks-IP-27
+set subnet 104.18.87.42/32
+next
+
+edit SchoolBucks-IP-28
+set subnet 142.250.176.202/32
+next
+
+edit SchoolBucks-IP-29
+set subnet 142.251.40.163/32
+next
+
+edit SchoolBucks-IP-30
+set subnet 142.251.40.131/32
+next
+
+edit SchoolBucks-IP-31
+set subnet 142.251.32.104/32
+next
+
+edit SchoolBucks-IP-32
+set subnet 104.16.118.116/32
+next
+
+edit SchoolBucks-IP-33
+set subnet 104.16.118.116/32
+next
+
+edit SchoolBucks-IP-34
+set subnet 104.16.118.116/32
+next
+
+edit SchoolBucks-IP-35
+set subnet 104.18.25.189/32
+next
+
+edit SchoolBucks-IP-36
+set subnet 104.17.35.207/32
+next
+
+edit SchoolBucks-IP-37
+set subnet 34.120.152.203/32
+next
+
+edit SchoolBucks-IP-38
+set subnet 136.146.47.251/32
+next
+
+edit SchoolBucks-IP-39
+set subnet 35.176.92.19/32
+next
+
+edit SchoolBucks-IP-40
+set subnet 35.211.222.132/32
+next
+
+edit SchoolBucks-IP-41
+set subnet 159.60.137.104/32
+next
+
+edit SchoolBucks-IP-42
+set subnet 159.60.137.58/32
+next
+
+edit SchoolBucks-IP-43
+set subnet 159.60.137.179/32
 next
 

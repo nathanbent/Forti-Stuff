@@ -1,0 +1,105 @@
+edit SchoolBucks-FQDN-1
+set type fqdn
+set fqdn myschoolbucks.com
+next
+
+edit SchoolBucks-FQDN-2
+set type fqdn
+set fqdn www.myschoolbucks.com
+next
+
+edit SchoolBucks-FQDN-3
+set type fqdn
+set fqdn login.myschoolbucks.com
+next
+
+edit SchoolBucks-FQDN-4
+set type fqdn
+set fqdn cdn.myschoolbucks.com
+next
+
+edit SchoolBucks-FQDN-5
+set type fqdn
+set fqdn content.analytics.myschoolbucks.com
+next
+
+edit SchoolBucks-FQDN-6
+set type fqdn
+set fqdn data.analytics.myschoolbucks.com
+next
+
+edit SchoolBucks-FQDN-7
+set type fqdn
+set fqdn cdn.cookielaw.org
+next
+
+edit SchoolBucks-FQDN-8
+set type fqdn
+set fqdn fonts.googleapis.com
+next
+
+edit SchoolBucks-FQDN-9
+set type fqdn
+set fqdn fonts.gstatic.com
+next
+
+edit SchoolBucks-FQDN-10
+set type fqdn
+set fqdn gstatic.com
+next
+
+edit SchoolBucks-FQDN-11
+set type fqdn
+set fqdn www.googletagmanager.com
+next
+
+edit SchoolBucks-FQDN-12
+set type fqdn
+set fqdn hubspot.com
+next
+
+edit SchoolBucks-FQDN-13
+set type fqdn
+set fqdn cta-service-cms2.hubspot.com
+next
+
+edit SchoolBucks-FQDN-14
+set type fqdn
+set fqdn no-cache.hubspot.com
+next
+
+edit SchoolBucks-FQDN-15
+set type fqdn
+set fqdn 434266.fs1.hubspotusercontent-na1.net
+next
+
+edit SchoolBucks-FQDN-16
+set type fqdn
+set fqdn js.hscta.net
+next
+
+edit SchoolBucks-FQDN-17
+set type fqdn
+set fqdn perf.hsforms.comblog.heartlandschoolsolutions.com
+next
+
+edit SchoolBucks-FQDN-18
+set type fqdn
+set fqdn content.analytics.heartlandmosaic.com
+next
+
+edit SchoolBucks-FQDN-19
+set type fqdn
+set fqdn service.force.com
+next
+
+edit SchoolBucks-FQDN-20
+set type fqdn
+set fqdn salesforceliveagent.com
+next
+
+edit SchoolBucks-FQDN-21
+set type fqdn
+set fqdn etransfer.myschoolbucks.com
+next
+
