@@ -1,0 +1,10 @@
+edit "test-name"
+set type fqdn
+set fqdn test.com
+next
+
+edit "test2-name"
+set type fqdn
+set fqdn test.com
+next
+

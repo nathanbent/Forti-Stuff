@@ -5,7 +5,7 @@ import ipaddress
 # ----------------------------
 # Config
 # ----------------------------
-NAME_TEMPLATE = "Bad IP"   # Object name prefix
+NAME_TEMPLATE = "Test IP"   # Object name prefix
 ENABLE_COLOR = True           # Toggle color on/off
 COLOR_ID = 7                  # FortiGate color (1–32 typically)
 

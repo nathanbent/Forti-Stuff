@@ -1,0 +1,8 @@
+edit Test-IP-1
+set subnet test
+next
+
+edit Test-IP-2
+set subnet test2
+next
+

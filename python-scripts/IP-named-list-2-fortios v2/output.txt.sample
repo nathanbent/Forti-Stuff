@@ -1,0 +1,10 @@
+edit "Test IP - 123.123.123.123"
+set subnet 123.123.123.123/32
+set color 7
+next
+
+edit "Test IP - 123.123.123.124"
+set subnet 123.123.123.124/32
+set color 7
+next
+

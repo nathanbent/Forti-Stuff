@@ -1,0 +1,10 @@
+edit TEST-FQDN-1
+set type fqdn
+set fqdn test.com
+next
+
+edit TEST-FQDN-2
+set type fqdn
+set fqdn test2.com
+next
+

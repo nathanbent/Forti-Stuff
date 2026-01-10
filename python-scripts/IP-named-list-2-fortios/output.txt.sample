@@ -1,0 +1,8 @@
+edit "test"
+set subnet 123.123.123.123
+next
+
+edit "test2"
+set subnet 123.123.123.124
+next
+
