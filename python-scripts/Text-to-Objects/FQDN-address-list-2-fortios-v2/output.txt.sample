@@ -1,0 +1,19 @@
+edit "NTP-time.cloudflare.com"
+set type fqdn
+set fqdn "time.cloudflare.com"
+next
+
+edit "NTP-time.google.com"
+set type fqdn
+set fqdn "time.google.com"
+next
+
+edit "NTP-time.apple.com"
+set type fqdn
+set fqdn "time.apple.com"
+next
+
+edit "NTP-ntp.ubuntu.com"
+set type fqdn
+set fqdn "ntp.ubuntu.com"
+next

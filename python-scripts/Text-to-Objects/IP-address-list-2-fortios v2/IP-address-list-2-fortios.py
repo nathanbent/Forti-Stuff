@@ -5,9 +5,9 @@ import ipaddress
 # ----------------------------
 # Config
 # ----------------------------
-NAME_TEMPLATE = "Test IP"   # Object name prefix
+NAME_TEMPLATE = "WAN-LIMS 2 Access Group"   # Object name prefix
 ENABLE_COLOR = True           # Toggle color on/off
-COLOR_ID = 7                  # FortiGate color (1–32 typically)
+COLOR_ID = 8                  # FortiGate color (1–32 typically)
 
 
 def strip_inline_comment(s: str) -> str:

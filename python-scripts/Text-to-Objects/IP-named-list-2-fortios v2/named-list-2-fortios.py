@@ -5,8 +5,9 @@ import ipaddress
 # ----------------------------
 # Config
 # ----------------------------
-ENABLE_COLOR = False    # Toggle color on/off
-COLOR_ID = 7           # FortiGate color (1–32 typically)
+ENABLE_ALLOW_ROUTING = True  # Toggle "set allow-routing enable" on/off
+ENABLE_COLOR = False       # Toggle color on/off
+COLOR_ID = 7               # FortiGate color (1–32 typically)
 
 
 def strip_inline_comment(s: str) -> str:
@@ -57,8 +58,10 @@ def format_name_ip_pairs(input_file: str, output_file: str) -> None:
                 lines.append(cleaned)
 
     if len(lines) % 2 != 0:
-        print(f"Warning: input has an odd number of non-empty lines ({len(lines)}). "
-              f"The last line will be ignored: '{lines[-1]}'")
+        print(
+            f"Warning: input has an odd number of non-empty lines ({len(lines)}). "
+            f"The last line will be ignored: '{lines[-1]}'"
+        )
 
     with open(output_file, "w", encoding="utf-8") as out:
         for i in range(0, len(lines) - 1, 2):
@@ -70,8 +73,13 @@ def format_name_ip_pairs(input_file: str, output_file: str) -> None:
 
                 out.write(f'edit "{name_line}"\n')
                 out.write(f"set subnet {subnet}\n")
+
+                if ENABLE_ALLOW_ROUTING:
+                    out.write("set allow-routing enable\n")
+
                 if ENABLE_COLOR:
                     out.write(f"set color {COLOR_ID}\n")
+
                 out.write("next\n\n")
                 written += 1
 
