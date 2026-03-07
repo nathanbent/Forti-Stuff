@@ -6,11 +6,18 @@
 I've been spending more time in the FortiGate CLI during deployments and migrations, and have been creating scripts to help with this process.
 
 ## The Stuff
-These are fairly basic scripts to take a large input set and output them into FortiOS compatible format.
+This is a collection of things I've found useful for FortiStuff- mostly FortiOS.  Also some random notes I've found (like color codes)
 
-### Scripts
-- Named lists to FortiOS (`named-list-2-fortios.py`)
+### Address Object helpers
+
+- Named lists to FortiOS (`python-scripts/address-object-helpers/fortios-ip-address-list-generator.py`)
+    - 
 - Bulk lists to be automatically named (`address-list-2-fortios.py`)
+    - This takes a list of IPs and applies a basic naming scheme to them.
+        - Basically `<custom_prefix-entry_#-entry>` so like `Google_DNS-1-8.8.8.8`
+    - Has *very* basic intelligence:
+        - 1.1.1.1 will be created as 1.1.1.1/32
+        - 192.168.0.0/24 will be created as 192.168.0.0/24
 - Bulk webfilter URL import named (`webfilter-2-fortios.py`)
 More coming soon!
 
@@ -21,7 +28,7 @@ More coming soon!
 
 ## FortiColors
 
-! Please let me know if any are wrong - I haven't doublechecked this yet
+! Please let me know if any are wrong - I haven't double-checked this yet
 
 ```
 1 - Black

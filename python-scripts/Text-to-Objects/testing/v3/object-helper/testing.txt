@@ -1,0 +1,15 @@
+test-dc-1
+10.0.1.11
+
+test-dc-2
+10.0.1.12
+
+bobbys-pc
+10.0.10.69
+
+server-network
+10.0.1.0/24
+
+user-network
+10.0.10.0/24
+
