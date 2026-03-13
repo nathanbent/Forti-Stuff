@@ -11,21 +11,22 @@ I've been spending more time in the FortiGate CLI during deployments and migrati
 ```
 Forti-Stuff/
 ├── python-scripts/
-│   ├── object-helpers/     <- Helps with bulk object stuff.
-│   │   └── bulk-address-object-generator/        <- Bulk firewall address object genrator.
-│   ├── Conversion-Scripts/         <- WIP
+│   ├── object-helpers/              <- Helps with bulk object stuff.
+│   │   ├── bulk-address-object-generator/  <- Bulk firewall address object generator.
+│   │   └── web-filter/             <- Web filter URL list generator.
+│   ├── testing-conversion-scripts/ <- WIP
 │   │   └── SonicWALL-to-FortiGate/
 │   └── deprecated-Text-to-Objects/ <- Old stuff, kept for reference
-└── useful-commands/               <- CLI notes and diagnostic commands
+└── useful-commands/                <- CLI notes and diagnostic commands
 ```
 
 ## The Main Script — `object-helper-v3`
 
-**Location:** `python-scripts/address-object-helpers/IP-address-list/`
+**Location:** `python-scripts/object-helpers/bulk-address-object-generator/`
 
 This is the one you want. It takes a list of IPs, CIDRs, and/or FQDNs and spits out FortiGate CLI config blocks ready to paste in or run as a script. Handles address objects, address groups, prefixes, DNS resolution, and a bunch of other options.
 
-See the [readme](python-scripts/address-object-helpers/IP-address-list/readme.md) in that folder for full usage and options.
+See the [readme](python-scripts/object-helpers/bulk-address-object-generator/readme.md) in that folder for full usage and options.
 
 Quick example:
 ```bash
@@ -41,7 +42,7 @@ python object-helper-v3.py --stdout
 
 ## Conversion Scripts (WIP)
 
-**Location:** `python-scripts/Conversion-Scripts/`
+**Location:** `python-scripts/testing-conversion-scripts/`
 
 Work in progress — don't get too excited yet.
 
@@ -49,11 +50,12 @@ Work in progress — don't get too excited yet.
 
 ## Commands & Notes
 
-**Location:** `Commands-n-stuff/`
+**Location:** `useful-commands/`
 
 Random CLI commands and notes I've found useful.
 
-- [FortiSwitch Diagnostics](Commands-n-stuff/fortiswitch-diag.md) — diag commands for FortiSwitch (MAC cache, config resync, etc.)
+- [FortiSwitch Diagnostics](useful-commands/fortiswitch-diag.md) — diag commands for FortiSwitch (MAC cache, config resync, etc.)
+- [IPsec Diagnostics](useful-commands/ipsec-diag.md) — diag commands for IPsec tunnels
 
 ## FortiColors
 
