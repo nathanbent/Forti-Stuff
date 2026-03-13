@@ -142,6 +142,13 @@ class Config:
     # Parallel DNS threads. CLI: --dns-workers N
     dns_workers: int = 10
 
+    # --- Direct IP / CIDR object naming ---
+    # Separator between the IP address and the prefix length in subnet object names.
+    # "/" → "192.168.0.0/24"   (CIDR notation; note: FortiGate allows "/" in object names)
+    # "_" → "192.168.0.0_24"   (safe alternative if "/" causes issues)
+    # /32 hosts never get a suffix regardless of this setting.
+    ip_cidr_separator: str = "/"
+
     # --- Resolved IP object naming ---
     # Controls how /32 objects from DNS A records are named.
     # True  (default): <base>-IP-1, <base>-IP-2, ...    (ip_object_suffix sets the "-IP-" part)
@@ -548,10 +555,15 @@ def format_fqdn_and_ip_objects() -> None:
                 # Handle direct IP / CIDR inputs — no DNS, no FQDN object
                 network = try_parse_ip_network(fqdn_line)
                 if network is not None:
-                    raw_name = name_line if name_line else fqdn_line.strip().replace("/", "_")
+                    if name_line:
+                        raw_name = name_line
+                    elif network.prefixlen == 32:
+                        raw_name = str(network.network_address)
+                    else:
+                        raw_name = f"{network.network_address}{CFG.ip_cidr_separator}{network.prefixlen}"
                     obj_name = safe_obj_name(raw_name)
                     if CFG.enable_prefix and CFG.name_prefix:
-                        obj_name = safe_obj_name(f"{CFG.name_prefix}{obj_name}")
+                        obj_name = safe_obj_name(f"{CFG.name_prefix}{CFG.name_prefix_delim}{obj_name}")
                     if obj_name in created_object_names:
                         duplicate_objects += 1
                         print(f"[Line {lineno}] Duplicate object name skipped: '{obj_name}'", file=sys.stderr)
