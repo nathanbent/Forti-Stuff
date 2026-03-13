@@ -84,8 +84,19 @@ class Config:
     # name_fqdn_delimiter: single-line "name<delim>value" format (overrides use_explicit_names).
     #   Example (":"): my-server:10.0.0.1
     #   Example ("\t"): my-server<TAB>10.0.0.1
-    # CLI: -e / --explicit-names   --delimiter DELIM   --lowercase
+    # use_input_comment=True: the line after each FQDN/IP is used as the object comment.
+    #   Without explicit names (groups of 2 non-blank lines):
+    #     example.com
+    #     My description here
+    #   With explicit names (groups of 3 non-blank lines):
+    #     my-fqdn
+    #     example.com
+    #     My description here
+    #   The comment is available as {comment} in all comment templates.
+    #   If a template is empty and use_input_comment is on, the raw comment is used.
+    # CLI: -e / --explicit-names   --delimiter DELIM   --input-comment   --lowercase
     use_explicit_names: bool = False
+    use_input_comment: bool = False
     name_fqdn_delimiter: str = ""
     lowercase_fqdn: bool = False  # force all FQDNs to lowercase before processing
 
@@ -311,7 +322,7 @@ def load_meaningful_lines(input_file: str) -> list[str]:
 
 def iter_records(lines: list[str]):
     """
-    Yields tuples: (lineno, name_line_or_none, fqdn_line)
+    Yields tuples: (lineno, name_line_or_none, fqdn_line, input_comment_or_none)
     """
     if CFG.name_fqdn_delimiter:
         delim = CFG.name_fqdn_delimiter
@@ -323,40 +334,75 @@ def iter_records(lines: list[str]):
                 )
                 continue
             name_part, _, fqdn_part = line.partition(delim)
-            yield (lineno, name_part.strip().strip('"'), fqdn_part.strip())
+            yield (lineno, name_part.strip().strip('"'), fqdn_part.strip(), None)
     elif CFG.use_explicit_names:
-        if len(lines) % 2 != 0:
-            print(
-                f"Warning: input has an odd number of non-empty lines ({len(lines)}). "
-                f"The last line will be ignored: '{lines[-1]}'",
-                file=sys.stderr,
-            )
-        for i in range(0, len(lines) - 1, 2):
-            name_line = lines[i].strip().strip('"')
-            fqdn_line = lines[i + 1].strip()
-            yield (i + 1, name_line, fqdn_line)
+        if CFG.use_input_comment:
+            group = 3
+            if len(lines) % group != 0:
+                print(
+                    f"Warning: input has {len(lines)} non-empty lines, which is not a multiple "
+                    f"of 3 (name / fqdn / comment). Trailing incomplete group will be ignored.",
+                    file=sys.stderr,
+                )
+            for i in range(0, len(lines) - (group - 1), group):
+                name_line = lines[i].strip().strip('"')
+                fqdn_line = lines[i + 1].strip()
+                comment_line = lines[i + 2].strip()
+                yield (i + 1, name_line, fqdn_line, comment_line or None)
+        else:
+            if len(lines) % 2 != 0:
+                print(
+                    f"Warning: input has an odd number of non-empty lines ({len(lines)}). "
+                    f"The last line will be ignored: '{lines[-1]}'",
+                    file=sys.stderr,
+                )
+            for i in range(0, len(lines) - 1, 2):
+                name_line = lines[i].strip().strip('"')
+                fqdn_line = lines[i + 1].strip()
+                yield (i + 1, name_line, fqdn_line, None)
     else:
-        for lineno, fqdn_line in enumerate(lines, start=1):
-            yield (lineno, None, fqdn_line)
+        if CFG.use_input_comment:
+            if len(lines) % 2 != 0:
+                print(
+                    f"Warning: input has an odd number of non-empty lines ({len(lines)}). "
+                    f"Trailing line will be ignored: '{lines[-1]}'",
+                    file=sys.stderr,
+                )
+            for i in range(0, len(lines) - 1, 2):
+                fqdn_line = lines[i].strip()
+                comment_line = lines[i + 1].strip()
+                yield (i + 1, None, fqdn_line, comment_line or None)
+        else:
+            for lineno, fqdn_line in enumerate(lines, start=1):
+                yield (lineno, None, fqdn_line, None)
 
 
 # ==========================================================
 # COMMENT HELPERS
 # ==========================================================
 
-def render_address_comment(*, fqdn: Optional[str], ip: Optional[str]) -> Optional[str]:
+def render_address_comment(
+    *, fqdn: Optional[str], ip: Optional[str], input_comment: Optional[str] = None
+) -> Optional[str]:
     if not CFG.enable_comment:
         return None
 
+    def _render(template: str, **kwargs) -> Optional[str]:
+        """Format template, injecting {comment} if available. Falls back to raw input_comment."""
+        if not template:
+            return input_comment or None
+        result = template.format(comment=input_comment or "", **kwargs)
+        return result or None
+
     # Direct IP input (no FQDN)
     if fqdn is None and ip is not None:
-        return CFG.comment_template_direct_ip.format(ip=ip) or None
+        return _render(CFG.comment_template_direct_ip, ip=ip)
 
     if ip is None:
-        comment = CFG.comment_template_fqdn.format(fqdn=fqdn)
-        return comment or None
+        return _render(CFG.comment_template_fqdn, fqdn=fqdn)
 
-    return CFG.comment_template_ip.format(
+    return _render(
+        CFG.comment_template_ip,
         fqdn=fqdn,
         ip=ip,
         resolved_at=RESOLVED_AT,
@@ -373,8 +419,9 @@ def write_address_common_options(
     fqdn: Optional[str],
     ip: Optional[str],
     is_fqdn_obj: bool,
+    input_comment: Optional[str] = None,
 ) -> None:
-    comment = render_address_comment(fqdn=fqdn, ip=ip)
+    comment = render_address_comment(fqdn=fqdn, ip=ip, input_comment=input_comment)
     if comment:
         comment = comment.replace('"', "'")
         out.write(f'set comment "{comment}"\n')
@@ -398,25 +445,25 @@ def write_address_common_options(
             out.write(f"set cache-ttl {int(CFG.cache_ttl_seconds)}\n")
 
 
-def write_fqdn_object(out: TextIO, obj_name: str, fqdn: str) -> None:
+def write_fqdn_object(out: TextIO, obj_name: str, fqdn: str, input_comment: Optional[str] = None) -> None:
     out.write(f'edit "{obj_name}"\n')
     out.write("set type fqdn\n")
     out.write(f'set fqdn "{fqdn}"\n')
-    write_address_common_options(out, fqdn=fqdn, ip=None, is_fqdn_obj=True)
+    write_address_common_options(out, fqdn=fqdn, ip=None, is_fqdn_obj=True, input_comment=input_comment)
     out.write("next\n\n")
 
 
-def write_ip_object(out: TextIO, obj_name: str, fqdn: str, ip: str) -> None:
+def write_ip_object(out: TextIO, obj_name: str, fqdn: str, ip: str, input_comment: Optional[str] = None) -> None:
     out.write(f'edit "{obj_name}"\n')
     out.write(f"set subnet {ip} 255.255.255.255\n")
-    write_address_common_options(out, fqdn=fqdn, ip=ip, is_fqdn_obj=False)
+    write_address_common_options(out, fqdn=fqdn, ip=ip, is_fqdn_obj=False, input_comment=input_comment)
     out.write("next\n\n")
 
 
-def write_direct_ip_object(out: TextIO, obj_name: str, network: ipaddress.IPv4Network) -> None:
+def write_direct_ip_object(out: TextIO, obj_name: str, network: ipaddress.IPv4Network, input_comment: Optional[str] = None) -> None:
     out.write(f'edit "{obj_name}"\n')
     out.write(f"set subnet {network.network_address} {network.netmask}\n")
-    write_address_common_options(out, fqdn=None, ip=str(network.network_address), is_fqdn_obj=False)
+    write_address_common_options(out, fqdn=None, ip=str(network.network_address), is_fqdn_obj=False, input_comment=input_comment)
     out.write("next\n\n")
 
 
@@ -474,7 +521,7 @@ def format_fqdn_and_ip_objects() -> None:
     dns_cache: dict[str, "list[str] | Exception"] = {}
     if CFG.output_ip_objects:
         fqdns_to_resolve: list[str] = []
-        for _, _, fqdn_line in records:
+        for _, _, fqdn_line, _ in records:
             try:
                 if try_parse_ip_network(fqdn_line):
                     continue  # direct IP inputs don't need DNS resolution
@@ -496,7 +543,7 @@ def format_fqdn_and_ip_objects() -> None:
         if CFG.start_with_config_firewall_address:
             out.write("config firewall address\n")
 
-        for lineno, name_line, fqdn_line in records:
+        for lineno, name_line, fqdn_line, input_comment in records:
             try:
                 # Handle direct IP / CIDR inputs — no DNS, no FQDN object
                 network = try_parse_ip_network(fqdn_line)
@@ -509,7 +556,7 @@ def format_fqdn_and_ip_objects() -> None:
                         duplicate_objects += 1
                         print(f"[Line {lineno}] Duplicate object name skipped: '{obj_name}'", file=sys.stderr)
                     else:
-                        write_direct_ip_object(out, obj_name, network)
+                        write_direct_ip_object(out, obj_name, network, input_comment=input_comment)
                         created_object_names.add(obj_name)
                         created_objects.append(obj_name)
                         written_direct_ip += 1
@@ -527,7 +574,7 @@ def format_fqdn_and_ip_objects() -> None:
                         duplicate_objects += 1
                         print(f"[Line {lineno}] Duplicate object name skipped: '{base_name}'", file=sys.stderr)
                     else:
-                        write_fqdn_object(out, base_name, fqdn)
+                        write_fqdn_object(out, base_name, fqdn, input_comment=input_comment)
                         created_object_names.add(base_name)
                         created_objects.append(base_name)
                         this_record_members.append(base_name)
@@ -554,7 +601,7 @@ def format_fqdn_and_ip_objects() -> None:
                                 duplicate_objects += 1
                                 print(f"[Line {lineno}] Duplicate object name skipped: '{ip_obj_name}'", file=sys.stderr)
                                 continue
-                            write_ip_object(out, ip_obj_name, fqdn, ip)
+                            write_ip_object(out, ip_obj_name, fqdn, ip, input_comment=input_comment)
                             created_object_names.add(ip_obj_name)
                             created_objects.append(ip_obj_name)
                             this_record_members.append(ip_obj_name)
@@ -636,6 +683,14 @@ def parse_args():
         "--delimiter", metavar="DELIM",
         help="Each input line is 'name<DELIM>fqdn' (e.g. '\\t' or ':')",
     )
+    parser.add_argument(
+        "--input-comment", action="store_true",
+        help=(
+            "Treat the line after each FQDN/IP as an object comment. "
+            "Default mode: pairs of (fqdn, comment). "
+            "With --explicit-names: triplets of (name, fqdn, comment)."
+        ),
+    )
 
     # Object naming
     parser.add_argument("-p", "--prefix", metavar="PREFIX", help="Prepend PREFIX to every object name")
@@ -679,6 +734,8 @@ if __name__ == "__main__":
         CFG.use_explicit_names = True
     if args.delimiter:
         CFG.name_fqdn_delimiter = args.delimiter.replace("\\t", "\t")
+    if args.input_comment:
+        CFG.use_input_comment = True
 
     # Object naming
     if args.prefix:

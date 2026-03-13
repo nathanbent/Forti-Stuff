@@ -28,6 +28,9 @@ python object-helper-v3.py -i hosts.txt --stdout
 # Add a prefix to all object names
 python object-helper-v3.py -i hosts.txt --prefix SITE --prefix-delim -
 
+# Use the second line of each entry as the object comment
+python object-helper-v3.py -i hosts.txt --input-comment
+
 # Use tab-delimited name/value pairs
 python object-helper-v3.py -i hosts.txt --delimiter '\t'
 
@@ -57,6 +60,22 @@ example.com
 ```
 my-server:10.0.0.1
 my-fqdn:example.com
+```
+
+**With comments** (`--input-comment`) — the line after each FQDN/IP becomes the `set comment` on the address object. Blank lines between entries are ignored:
+```
+example.com
+My description here
+
+10.0.0.1
+Direct IP entry
+```
+
+Combined with `--explicit-names`, entries are groups of three lines (name / FQDN / comment):
+```
+my-fqdn
+example.com
+My description here
 ```
 
 Lines beginning with `#` or `;` (and inline comments) are ignored.
@@ -89,6 +108,7 @@ end
 | `--stdout` | Write generated config to stdout |
 | `-e`, `--explicit-names` | Input is alternating name/value pairs |
 | `--delimiter DELIM` | Each line is `name<DELIM>fqdn` (e.g. `\t` or `:`) |
+| `--input-comment` | Line after each FQDN/IP is used as the object comment |
 | `-p`, `--prefix PREFIX` | Prepend prefix to every object name |
 | `--prefix-delim DELIM` | Separator between prefix and object name |
 | `--lowercase` | Lowercase all FQDNs before processing |
